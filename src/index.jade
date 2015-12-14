@@ -1,0 +1,73 @@
+- var title = "blank-frontend-recipe";
+- var description = "A very simple frontend development template";
+- var keywords = "jade, stylus, nib, csso, uglify-js, gulp";
+- var author = "Me :D";
+
+doctype html
+html(lang="ja")
+  //- Invisible Comment (won't be compiled)
+  // Visible Comment (will be compiled)
+  head
+    title=title
+    meta(charset='UTF-8')
+    meta(name='description' content=description)
+    meta(name='keywords' content=keywords)
+    meta(name='author' content=author)
+    //- Open graph metadata http://ogp.me/
+    meta(property='og:url', content='https://github.com/honeycider/blank-frontend-recipe')
+    meta(property='og:type', content='website')
+    meta(property='og:title', content=title)
+    meta(property='og:description', content=description)
+    meta(property='og:image', content='img/og_image.jpg')
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    link(rel='stylesheet' href='style.css')
+    link(rel='shortcut icon' href='img/favicon.ico')
+    <!--[if (gte IE 9) | (!IE)]><!-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="js/css_browser_selector.js"></script>
+    <![endif]-->
+  body#body.clearfix.loading
+
+    header
+      h1#logo= title
+
+    nav
+      ul
+        li Section 1
+        li Section 2
+        li Section 3
+
+    main(role="main")
+      section
+        h2 Section 1
+        div.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit esse aperiam nemo facere nobis fugiat. Doloribus impedit non ab eaque repudiandae animi quaerat voluptatibus deleniti, reiciendis dolores ipsam, possimus consectetur.
+ 
+      hr.divider
+
+      section
+        h2 Section 2
+        div.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit esse aperiam nemo facere nobis fugiat. Doloribus impedit non ab eaque repudiandae animi quaerat voluptatibus deleniti, reiciendis dolores ipsam, possimus consectetur.
+ 
+      hr.divider
+
+      section
+        h2 Section 3
+        div.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit esse aperiam nemo facere nobis fugiat. Doloribus impedit non ab eaque repudiandae animi quaerat voluptatibus deleniti, reiciendis dolores ipsam, possimus consectetur.
+ 
+      hr.divider
+
+
+    footer
+      p.copyright Footer links / Copyright / Etc
+
+    script(src="js/common.js")

@@ -1,0 +1,76 @@
+//////////////////////////////////////////////////
+// Settings
+@import '/settings/settings'
+// Sprites
+// @import "/sprites/sprites_ttl"
+
+//////////////////////////////////////////////////
+// Variables
+//////////////////////////////////////////////////
+$block_shadow = 0 5px 10px rgba(#000, .5)
+$block_shadow_lite = 0 2px 3px rgba(#000, .3)
+$body_min_width = 1200 //px
+
+//////////////////////////////////////////////////
+// Common
+//////////////////////////////////////////////////
+.clearfix
+  clearfix()
+  
+.hidden
+  display: none
+
+//////////////////////////////////////////////////
+// html, body
+//////////////////////////////////////////////////
+html
+  font-size: 62.5%
+
+html, body
+  width: 100%
+  background: $text
+  color: #fff
+  position: relative
+
+body
+  outline: none
+  min-width: unit($body_min_width, 'px')
+  font-size: 62.5%
+  font-family: $font_jp
+  font-size(16)
+  &.loading
+    width: 100%
+    height: 100%
+    overflow: hidden
+    user-select: none
+
+a
+  cursor: pointer
+  color: #fff
+  text-decoration: underline
+  &:hover
+    text-decoration: none
+
+a, input
+  outline: none
+
+::selection
+  color: #fff
+  background: $text
+::-moz-selection
+  color: #fff
+  background: $text
+
+input
+  font-family: $font_jp
+  border: none
+
+.btn
+  transition: transform 0.1s cubic-bezier(0, 1.8, 1, 1.8)
+  &:active
+    transform: scale(0.97)
+
+//////////////////////////////////////////////////
+// Mobile Media Queries
+//////////////////////////////////////////////////
+@import '/mobile'

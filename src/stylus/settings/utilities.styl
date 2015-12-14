@@ -1,0 +1,71 @@
+//////////////////////////////////////////////////
+// Utilities
+// Handy mixins
+//////////////////////////////////////////////////
+
+// REM font-size, with viewport unit experiment
+// Ref: http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+font-size(sizeValue=13)
+	font-size: unit(sizeValue,'px')
+	font-size: unit(sizeValue/10,'rem')
+
+// Responsive Sprites
+// To be used with spritesmith-generated stylesheets under /sprites/
+// Parameters:
+// sprite = variable (array) of sprite
+// display-type = display type, inline-block by default
+// bg = boolean, if the image is to be used as a background
+// dimensions = boolean, if the dimensions of the original image should be applied (in pixels)
+sprite(sprite, display-type = inline-block, bg = false, dimensions = false)
+	background-image: url(img-path + "sprites/" + sprite[8])
+	//Background position X in % = X coordinate in pixels / (pixel height - offset Y) * 100
+	bg-pos-x = sprite[0] / (sprite[6] - sprite[4]) * 100
+	if (bg-pos-x != bg-pos-x) // isNan (when pixel height - offset Y = 0)
+		bg-pos-x = 0
+	//Background position Y in % = Y coordinate in pixels / (pixel width - offset X) * 100
+	bg-pos-y = sprite[1] / (sprite[7] - sprite[5]) * 100
+	if (bg-pos-y != bg-pos-y) // isNan (when pixel width - offset X = 0)
+		bg-pos-y = 0
+	background-position: unit(floor(bg-pos-x,1),'%') unit(floor(bg-pos-y,1),'%')
+	background-repeat: no-repeat
+	background-size: floor((sprite[6] / sprite[4] * 100)%, 2)
+	display: display-type
+	if dimensions is true
+		width: sprite[6]
+		height: sprite[5]
+	if !bg
+		hide-txt()
+
+
+//Hide Text
+hide-txt()
+	// Don't need negative text-indent + overflow: hidden if you're only working with mobile
+	text-indent: -200%
+	white-space: nowrap
+	overflow hidden
+  font-size: 0
+  line-height: 0
+	color: transparent
+
+
+//Image Anchor
+replace-txt(img-path = "text.png", dimensions = false)
+	background: image-url(img-path) 50% 50% no-repeat
+	background-size: contain //will break the whole definition if included in shorthand
+	font-size: 0
+	line-height: 0
+	color: transparent
+	overflow hidden
+	display: inline-block
+
+	if dimensions is true
+		width: image-size(pathjoin(asst-path, img-path))[0]
+		height: image-size(pathjoin(asst-path, img-path))[1]
+
+
+//::before ::after as pseudo blocks
+pseudo-img()
+	position: absolute
+	display: block
+	content: ""
+	text-indent: 0

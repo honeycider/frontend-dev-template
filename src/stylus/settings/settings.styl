@@ -1,0 +1,34 @@
+@import 'nib'
+support-for-ie = false
+vendor-prefixes = webkit moz o ms official
+
+//////////////////////////////////////////////////
+// Reset
+//////////////////////////////////////////////////
+global-reset()
+reset-html5()
+
+//////////////////////////////////////////////////
+// Settings
+//////////////////////////////////////////////////
+debug = false // Use Debug Indicators
+
+// Replacing Compass' image-url helper
+img-path = "img/"
+image-url(image)
+	url(img-path + image)
+
+asst-path = "../img"
+
+$iphone3_screenWidth = 320px
+$iphone3_screenHeight = 480px
+$iphone5_screenHeight = 568px
+$iphone6_screenHeight = 667px
+$galaxyS_screenHeight = 533px
+
+//////////////////////////////////////////////////
+// Import Utilities
+//////////////////////////////////////////////////
+@import 'utilities'
+@import 'typography'
+@import 'animations'
